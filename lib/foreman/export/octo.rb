@@ -12,8 +12,8 @@ class Foreman::Export::Octo < Foreman::Export::Base
       next if ['rake', 'console'].include?(name)
 
       port = engine.port_for(process, 1)
-      write_template "octo/run.erb", "run-#{app}-#{name}", binding
-      chmod 0755, "run-#{app}-#{name}"
+      write_template "octo/run.erb", "run-#{name}", binding
+      chmod 0755, "run-#{name}"
     end
   end
 end

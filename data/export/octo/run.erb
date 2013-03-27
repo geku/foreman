@@ -4,4 +4,4 @@ export PORT=<%= port %>
 <% engine.env.each_pair do |var,env| %> export <%= var.upcase %>=<%= shell_quote(env) %>; <% end %> 
 <%= process.command %>
 
-# >> <%= log %>/<%= app %>-<%= name %>.log 2>&1'
+# >> <%= log %>/<%= name %>.log 2>&1'
