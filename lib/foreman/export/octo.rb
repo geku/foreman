@@ -4,7 +4,8 @@ require "foreman/export"
 class Foreman::Export::Octo < Foreman::Export::Base
 
   def export
-    super
+    error("Must specify a location") unless location
+    FileUtils.mkdir_p(location) rescue error("Could not create: #{location}")
 
     engine.each_process do |name, process|
       next if engine.formation[name] < 1
